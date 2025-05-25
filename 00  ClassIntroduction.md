@@ -1,0 +1,68 @@
+# 0 Class Introduction
+
+## Class Logistics
+
+General information for the class
+
+#### Schedule
+
+- The class runs from 8:00am to 4:00pm PDT May 27, 2025
+- One-hour lunch from 11:30 to 12:30 PDT
+- Mid-morning and mid-afternoon 10-minute breaks
+    - No fixed time, depends on the flow of discussion
+    - Approximately 9:30am and 2:00pm
+- 
+#### Materials
+
+There is a class materials repository located at:
+
+[Class Repository](https://github.com/ExgnosisClasses/2511-TerraformIntro-May27)
+
+- Additional resources will be added as needed in response to what we cover in class
+- The repository will be available for 30 days until June 27, 2025
+
+
+#### Lab Environments
+
+- Because the course emphasizes using Terraform in the Azure Cloud, you will need to have an IBM Cloud account that you can use for the class.
+
+
+---
+
+
+## Instructor - Rod Davison
+
+<img src="images/RodDavison.png" width="309"   alt=""/>
+
+I have been involved in the technology industry for over 50 years, starting in 1972
+
+- Academia (theoretical mathematics, linguistics, cognitive science)
+- Artificial Intelligence R&D and product development
+- Software Development:small products to large scale systems development
+- Data Analytics: Social Research, experimental design
+- Market Research
+- Project Manager and Research Director
+- Quality and Testing
+- Business Analysis
+- Consulting and training
+
+I have worked with government agencies in Canada and the US, defence contractors and aerospace firms, major financial institutions, including many years on Wall Street working with JPMC, CitiBank, Capital One, Bank of American, HSBC and others.
+
+I have a number of current research interests in high performance computing, AI and software architecture.
+
+## About the Class
+
+- This class is an introduction to the basic concepts of Terraform 
+- The class uses the Azure cloud environment
+
+## Introductions
+
+Please introduce yourself very briefly, we don't have a lot of time for this part. 
+
+Main points to cover:
+
+- Your experience with Terraform or any other infrastructure as code tools.
+- Any specific objectives for the class or specific items you want to learn.
+
+
+
