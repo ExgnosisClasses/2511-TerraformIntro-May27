@@ -24,7 +24,8 @@ There is a class materials repository located at:
 
 #### Lab Environments
 
-- Because the course emphasizes using Terraform in the Azure Cloud, you will need to have an IBM Cloud account that you can use for the class.
+- Because the course emphasizes using Terraform in the Azure Cloud, you will be provided with an Azure student account for the day.
+- If you already have an Azure account, you may use that as long as you have permission to use it in class
 
 
 ---
@@ -53,7 +54,8 @@ I have a number of current research interests in high performance computing, AI 
 ## About the Class
 
 - This class is an introduction to the basic concepts of Terraform 
-- The class uses the Azure cloud environment
+- We will not be creating complex deployments since the purpose of the class is to master the concepts and practices of Terraform.
+- The Azure constructs we will be using Terraform for will be simplistic, so we can focus on Terraform and not Azure internals.
 
 ## Introductions
 

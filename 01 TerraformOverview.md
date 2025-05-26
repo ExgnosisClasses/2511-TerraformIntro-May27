@@ -215,7 +215,7 @@ images/Facebookerror.png
     - DevOps integrates the two roles through common tools
     - Enables _continuous integration_ & _continuous deployment_ (CICD)
 
-<img src="images/DevOpsProcess.png" width="800" alt="">
+<img src="images/devopd.png" width="800" alt="">
 
 
 
@@ -349,4 +349,10 @@ images/Facebookerror.png
 **Reuse:** New infrastructure deployments can be derived quickly from previous deployments
 
 ---
+
+## Lab 01 -Setup
+
+---
+
+## End Module
 
