@@ -25,7 +25,7 @@ The main module that _terraform_ utility is run from is called the __root__ modu
 - Every terraform application has a root module
 - The terraform state file is created and maintained by terraform in the root module directory. 
 - You never ever do anything with or to the state file - **only** Terraform should ever modify it.
-- A root module is mandatory but we can use other ancillary modules (covered later in the course)
+- A root module is mandatory, but we can use other ancillary modules (covered later in the course)
 
 Terraform variables are always stored in a file named `terraform.tfvars`. There can be at most one variable file per module.
 
@@ -90,6 +90,7 @@ Terraform merges the contents of all the *.tf files in a directory before doing 
 - This means that you can name your *.tf files whatever you want
 - You can have as many *.tf files as you want in the module
 - A minimum requirement is that there should be one file that contains the information needed to initialize the Terraform application
+- In our labs, we have put this minimal code into a file called `providers.tf`
 
 Some best practices
 - Files should be modular so that the organization of the Terraform code is easy to understand and maintain
@@ -137,7 +138,7 @@ A typical terraform module looks like the screenshot below
 It is considered a professional best practice to use this structure for all terraform work
 - Additional files, like _buckets.tf_ are added when they improve the readability of the code
 
-![](images/CannonicalFiles.png?raw=true)
+<img src="images/CannonicalFiles.png" width="500" alt="">
 
 ---
 
@@ -147,7 +148,7 @@ The screenshot below shows a non-canonical module structure
 - This will still work, terraform does not care what we name the files since it merges the contents of all the files before planning the deployment
 - However, the _terraform.tfvars_ file cannot be renamed or terraform will ignore it
 
-<img src="images/CannonicalFiles.png" width="500" alt="">
+<img src="images/NonCannoicalFiles.png" width="525" alt="">
 
 
 ---
@@ -172,21 +173,10 @@ Used to specify how to set up terraform.
     - Defines location of the Terraform backend (covered later)
 
 ```terraform
-resource "azurerm_resource_group" "rg" {
-  name     = "myTFResourceGroup"
-  location = "westus2"
-}
-
-```
-
-Or
-
-```terraform
 terraform {
   required_providers {
     aws = {
     source  = "hashicorp/aws"
-    version = "~> 3.0"
     }
   }
 }
@@ -221,8 +211,7 @@ region = "us-east-1"
 
 There can be more than one provider
 - Different providers are identified by aliases
-- The provider without an alias is the default provider
-- Multiple providers are demonstrated later
+- Represents an alternate Azure envi
 
 [Providers Documentation](https://developer.hashicorp.com/terraform/language/providers)
 
@@ -247,3 +236,24 @@ Running _validate_ on its own is a lot faster for quick syntax checks
 
 ---
 
+## Terraform files
+
+Terraform maintains a hidden directory `.terraform` and a state file `terraform.tfstate` and a backup copy of the state file `terraform.tfstate.backup`
+- We will explore these files in Lab 2.
+
+The other Terraform files that it maintains are:
+
+- _.terraform/_ A hidden directory containing initialization moduels
+- _.terraform/providers/_ Caches downloaded providers (e.g., azurerm, aws)
+- _.terraform/terraform.tfstate.lock.info_ a lock file used _during terraform apply_ to avoid concurrent state writes
+- _.terraform.lock.hcl_ Provider dependency lock file to ensure consistent provider versions across runs
+- _.terraform/modules/_	Cached modules if you're using remote or local modules
+
+
+---
+
+## Lab 2 - Terraform Basics
+
+---
+
+## End 
