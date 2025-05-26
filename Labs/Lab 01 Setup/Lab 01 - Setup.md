@@ -86,12 +86,7 @@ resource "azurerm_resource_group" "lab1" {
 
 <img src="images/destroyed.png" width="1248" alt="">
 
-Check in the GUI to confirm that the resource group has been deleted.# Lab 1 test
-
-resource "azurerm_resource_group" "lab1" {
-name     = "Lab1"
-location = "eastus"
-}
+Check in the GUI to confirm that the resource group has been deleted.
 
 ---
 
