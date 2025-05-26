@@ -1,6 +1,6 @@
 # 03 Terraform State
 
----
+**Note**: Although the examples in this section reference AWS, exactly the same holds for Azure as you will see in the lab.
 
 ## What Is Terraform State?
 
@@ -13,7 +13,7 @@ The state file:
 When `terraform plan` is run, it does the following
 1. Reads all of the `*.tf` files in a directory
 2. Updates the state information to record modifications that have been made in the `*.tf` files
-3. Queries the cloud provider environment to get a description the current state of the deployed resources
+3. Queries the cloud provider environment to get a description of the current state of the deployed resources
 4. Creates a plan to modify the cloud resources to conform to the state descriptions
 5. Terraform cannot see or modify cloud resources that are not in its state file
 
@@ -453,6 +453,8 @@ Common environments are: development, test, stage and production
 
 ![](images/shared-state.png?raw=true)
 
+<img src="images/shared-state.png" width="724" alt="">
+
 ---
 
 ## Terraform Workspaces
@@ -466,8 +468,8 @@ We can create additional workspaces as we need them
 
 For local state files, each new workspace's state file is in its own folder
 
-![](images/local-workspace-directories.png?raw=true)
 
+<img src="images/local-workspace-directories.png" width="373" alt="">
 
 ---
 
@@ -736,6 +738,8 @@ Each deployment has its own backend, local or remote.
 
 ## File Isolation Example
 
+In the image shown, the remote backends are kept in the `global/s3 directory
+
 <img src="images/isolatedfolders.png" width="590" alt="">
 
 
@@ -852,17 +856,60 @@ Read the secret from a secret store - there are multiple secrets managers
 - Azure Key Vault and the azurerm_key_vault_secret data source
 - HashiCorp Vault and the vault_generic_secret data source
 
----
-
-## Using AWS Secrets Manager
-
 <img src="images/secrets1.png" width="694" alt="">
-    
+ 
+
+### Keeping secrets in Azure
+
+Avoid storing secrets like database passwords in plaintext. Instead, use **Azure Key Vault**:
+
+### Recommended Secret Pattern
+
+Use the `azurerm_key_vault_secret` data source to read secrets securely:
+
+```terraform
+resource "azurerm_key_vault" "example" {
+  name                = "myKeyVault"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  tenant_id           = data.azurerm_client_config.current.tenant_id
+  sku_name            = "standard"
+  soft_delete_enabled = true
+  purge_protection_enabled = true
+}
+
+resource "azurerm_key_vault_access_policy" "example" {
+  key_vault_id = azurerm_key_vault.example.id
+  tenant_id    = data.azurerm_client_config.current.tenant_id
+  object_id    = data.azurerm_client_config.current.object_id
+
+  secret_permissions = ["Get"]
+}
+
+data "azurerm_key_vault_secret" "db_password" {
+  name         = "mysql-password"
+  key_vault_id = azurerm_key_vault.example.id
+}
+
+resource "azurerm_mysql_server" "example" {
+  name                = "mysql-demo"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  administrator_login = "mysqladmin"
+  administrator_login_password = data.azurerm_key_vault_secret.db_password.value
+  sku_name            = "GP_Gen5_2"
+  version             = "8.0"
+  storage_mb          = 5120
+  auto_grow_enabled   = true
+  backup_retention_days = 7
+  geo_redundant_backup = "Disabled"
+  ssl_enforcement_enabled = true
+ ```
 ---
 
 ## Keeping Secrets II
 
-Other option is to manage them completely outside of Terraform
+Another option is to manage them completely outside of Terraform
 - Then pass the secret into Terraform via an environment variable.
 - A known weakness of Terraform:
   - The secret will be stored in the Terraform state file in plain text
