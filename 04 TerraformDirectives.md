@@ -10,10 +10,7 @@
 4. _variable_: defines an input to a Terraform module
 5. _output_: defines a return value or output from a Terraform module
 
----
-
-
----
+--- 
 
 ## Terraform Directives
 

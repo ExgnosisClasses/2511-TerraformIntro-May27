@@ -2,7 +2,128 @@
 
 ## Part 1: Azure Cloudshell
 
-Instruction on how to do this with the provided accounts will be supplied in a separate file.
+- You can do this in your own Azure account, assuming you have permissions to create resource groups, blob storage and Virtual Machines.
+- If not, you can use the provided VM
+
+### Step 1: Getting into your Account
+- you will be provided with an account that looks like the following, but will have a number instead of xx
+- For the following screenshots, a dummy account `student98` is being used.
+- **You will need access to a cell phone to authenticate your account**
+
+```text
+account: studentxx@markelephantscale.onmicrosoft.com
+pass: Bingobob123
+```
+
+### Step 3: Log in
+
+Go to [http://portal.azure.com](http://portal.azure.com)
+
+- Enter the id you were assigned
+- Select `Next`
+
+<img src="images/00screen1.png">
+
+- You will be prompted to enter your password which is `Bingobob123`
+- Select `Next`
+- You will then be asked to reset your password
+- In the screenshot below, I set it to `Bingobob123!`
+
+
+<img src="images/00screen3.png">
+
+- You will then see the "keep your account secure" dialog
+- Select `Next`
+
+<img src="images/00screen4.png">
+
+- You will be taken immediately to the `Microsoft Authenticator`
+- Select the `I want to set up a different method` option
+
+<img src="images/00screen5.png">
+
+- That will pop up a dialog like this
+- Choose the `phone` option
+
+<img src="images/00screen6.png">
+
+- Enter your cell number and select `Receive a code` 
+- Select `Next`
+
+<img src="images/00screen7.png">
+
+- Enter the code you get and select `Next`
+
+<img src="images/00screen8.png">
+
+- Select `Done` to finish
+
+<img src="images/00screen9.png">
+
+- When asked if you want to stay logged in, select `YES`
+
+<img src="images/00screen10.png">
+
+- You should now be logged into Azure
+
+<img src="images/00screen11.png">
+
+### Step 4: Open the cloud shell
+
+- In the main Azure home page
+- Select the `cloud shell` icon on the tool bar, next to the `copilot` idcone
+
+<img src="images/99shell1.png">
+
+- Select the `Bash` shell
+
+<img src="images/99shell2.png">
+
+- Select the Subscription from the drop-down list
+- Select the No Storage option
+- Your configuration should look like this
+
+<img src="images/99shell3.png">
+
+- You should see the shell display
+
+```console
+Requesting a Cloud Shell.Succeeded. 
+Connecting terminal...
+
+Welcome to Azure Cloud Shell
+
+Type "az" to use Azure CLI
+Type "help" to learn about Cloud Shell
+
+Your Cloud Shell session will be ephemeral so no files or system changes will persist beyond your current session.
+```
+
+Once the console opens, you can find your id that you to use by executing `az account show`
+
+```console
+student98 [ ~ ]$ az account show
+{
+  "environmentName": "AzureCloud",
+  "homeTenantId": "d84eef44-a147-4f60-8a78-01c2c07d347a",
+  "id": "fb1c7e89-1238-4b64-9ee0-9df0ad9d0c81",
+  "isDefault": true,
+  "managedByTenants": [],
+  "name": "Microsoft Azure Sponsorship",
+  "state": "Enabled",
+  "tenantId": "d84eef44-a147-4f60-8a78-01c2c07d347a",
+  "user": {
+    "cloudShellID": true,
+    "name": "student98@markelephantscale.onmicrosoft.com",
+    "type": "user"
+  }
+}
+```
+
+### You are ready to go!!
+
+---
+
 
 ## Part 2: Creating the test environment
 

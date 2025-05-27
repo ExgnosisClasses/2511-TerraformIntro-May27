@@ -451,6 +451,6 @@ Terraform has compared your real infrastructure against your configuration and f
 - Run `terraform destroy` to clean up Azure and then delete the `main.t` file and its variants
 - Leave the `providers.tf` in place
 
-```console
+---
 
-```
+## End Lab

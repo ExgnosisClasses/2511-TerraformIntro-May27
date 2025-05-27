@@ -1,11 +1,11 @@
-# 06Terraform Variables
+# 04 Terraform Variables
 
 ---
 
 
 ## Terraform Variables
 
-Variables are used to replace hardcoded values, like the instance type, in Terraform code 
+Variables are used to replace hardcoded values, like the region or  type, in Terraform code 
 
 Variables are typed, like in a programming language, but default to string if a type is not explicitly defined
 
@@ -78,9 +78,9 @@ resource "aws_s3_bucket" "my_bucket" {
 
 ## Overriding Variables
 
-We may want to override the defined variables in the `terrwform.tfvars` temporarily.
+We may want to override the defined variables in the `terraform.tfvars` temporarily.
 
-We can define a file name `*.auto.tfvars` that will override the `terraform.tfvars` file/
+We can define a file name `*.auto.tfvars` that will override the `terraform.tfvars` file
 - For example, we may want to use a different configuration of a vm for testing purposes so we would define that in a `testing.auto.tfvars file` which would override the value in the `terraform.tfvars` file.
 
 Using the `*.auto.tfvars` file prevents having to rewrite the `terraform.tfvars` file to make changes to configuration.
@@ -106,7 +106,7 @@ The `variables.tf` file we were using is analogous to a parameter list
 - This is why if we don't supply a value or a default, we are prompted for one.
 
 The `outputs.tf` file defines a series of named return values
-- Sine we have been working only with the root module, the only thing we have been able to do with them so far is just print them out.
+- Since we have been working only with the root module, the only thing we have been able to do with them so far is just print them out.
 
 ---
 
