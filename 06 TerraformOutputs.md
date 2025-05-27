@@ -1,4 +1,4 @@
-# 05 Terraform Outputs
+# 6 Terraform Outputs
 
 ---
 

@@ -129,9 +129,6 @@ The primary functions and benefits of using local variables are:
 - _Enhancing Maintainability:_ When changes to a value used in multiple places within your module, the change needs only be done once in the locals block.
 - _Organizational Benefits:_ Local variables can be used to group related values together in a way that makes logical sense, which can be particularly useful for organizing configurations that involve multiple resources with related settings.
 
-You may have noticed in the last lab that while we changed the name of the resource group to "LAb4" there was still a tag being used that read "lab3"
-- This is the sort of metadata that a local variable is useful for.
-
 ---
 
 ## Example

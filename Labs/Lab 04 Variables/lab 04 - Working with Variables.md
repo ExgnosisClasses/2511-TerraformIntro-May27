@@ -332,15 +332,5 @@ Terraform will perform the following actions:
 Plan: 1 to add, 0 to change, 0 to destroy.
 ```
 
-#### Note
-This may seem redundant, but we often will use the locals block to read a configuration file that usually contains specific details about who is running the code, the location, etc.
-
-Other reasons are:
-- Avoid duplication: Define a value once and reference it in multiple places
-- Improve readability: Replace long or complex expressions with meaningful names
-- Enable intermediate computation: Store intermediate values from expressions, maps, or functions
-- Encapsulate logic: Use conditionals or functions without cluttering resource blocks
-- Organize configurations: Separate variable inputs from internal configuration logic
-
 
 ## End Lab

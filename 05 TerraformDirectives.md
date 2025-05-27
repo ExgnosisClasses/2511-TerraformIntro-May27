@@ -17,10 +17,9 @@
 Consider the following AWS directives in the `main.tf`file
 
 Two resources are defined in the file that are going to be managed by Terraform
-- An EC2 instance
-- An S3 bucket
+- An Azure blob storage
+- An Azure Virtual machine
 
-The default VPC, not managed by Terraform, is identified as a data source
 
 The `'main.tf` file looks like this
 
@@ -42,8 +41,6 @@ data "aws_vpc" "default_vpc" {
 }
 ```
 
-The instructor will demonstrate the equivalent Azure code. The code is in the director "Examples/ex1-1"
-
 ---
 
 
@@ -58,9 +55,9 @@ Resource directives always start with the _resource_
     - Some arguments are optional, like defined tags, which don't have any value unless they are defined in the Terraform code.
 - For each resource, there is a documentation page describing all the attributes associated with a specific resource and examples of how to use the resource
 
-[AWS Resource Documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
+[Azure Resource Documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
 
-[IBM Resource Documentation](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs)
+
 
 ---
 
@@ -68,7 +65,7 @@ Resource directives always start with the _resource_
 
 Some properties of a resource are assigned by the cloud provider
 - These are referred to as _attributes_
-- Like public_ip of an VM instance or the id of a bucket for example
+- Like public_ip of a VM instance or the id of a blob storage for example
 - These are created by the cloud provider when the resource is created and can be accessed in the Terraform code after the resource is created
 - Remember that Terraform creates a plan for implementing resources which is based in part on the dependencies among the resources being implemented.
 
