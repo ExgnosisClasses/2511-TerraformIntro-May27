@@ -1,4 +1,4 @@
-# 04 Terraform Directives
+# 05 Terraform Directives
 
 ---
 
@@ -86,9 +86,6 @@ References a type of resource that is not under Terraform management, usually a 
 - We supply whatever attributes are necessary to identify the specific resource we want to get a reference to. (More on this in a later module)
 - If the resource was created the resource with Terraform, we can reference the attributes directly using the name we supplied like "my_vm" instead of using the _data_ directive.
 
-In the `main.tf` file in the example, the data directive looks for a `aws_vpc` resource where the attribute `default` has the value `true`
-- This provides enough information to uniquely identify the VPC.
-- While here may be many VPCs in a region, there is only one VPC which has the default property set to "true".
 
 The _data_ directive will be explored in greater depth in a later module.
 
